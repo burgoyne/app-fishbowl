@@ -1,0 +1,6 @@
+framework module Pods_fishlist {
+  umbrella header "Pods-fishlist-umbrella.h"
+
+  export *
+  module * { export * }
+}
