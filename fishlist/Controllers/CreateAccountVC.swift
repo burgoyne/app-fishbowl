@@ -21,11 +21,11 @@ class CreateAccountVC: UIViewController {
     @IBAction func createBtnPressed(_ sender: Any) {
         let signUpManager = FirebaseAuth()
         if let email = emailTxtField.text, let password = passwordTxtField.text {
-            signUpManager.createUser(email: email, password: password) {[weak self] (success) in
+            signUpManager.createUser(withEmail: email, andPassword: password) {[weak self] (success, registrationError) in
                 guard let `self` = self else { return }
                 var message: String = ""
                 if (success) {
-                    signUpManager.signIn(email: email, pass: password) { (success) in
+                    signUpManager.signIn(withEmail: email, andPassword: password) { (success, registrationError) in
                         //guard let `self` = self else { return }
                         if (success) {
                             self.performSegue(withIdentifier: UNWIND, sender: nil)

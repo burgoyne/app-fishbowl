@@ -7,28 +7,35 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class FirebaseAuth {
-    func createUser(email: String, password: String, completionBlock: @escaping (_ success: Bool) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
-            if let user = authResult?.user {
-                print(user)
-                completionBlock(true)
-            } else {
-                completionBlock(false)
+    static let instance = FirebaseAuth()
+    
+    func createUser(withEmail email: String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
+        Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
+            guard let authDataResult = authDataResult else {
+                userCreationComplete(false, error)
+                return
             }
+            
+            let userData = ["provider": authDataResult.user.providerID, "email": authDataResult.user.email]
+            DataService.instance.createDbUser(uid: authDataResult.user.uid, userData: userData)
+            userCreationComplete(true, nil)
         }
     }
     
-    func signIn(email: String, pass: String, completionBlock: @escaping (_ success: Bool) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: pass) { (result, error) in
-            if let error = error, let _ = AuthErrorCode(rawValue: error._code) {
-                completionBlock(false)
-            } else {
-                completionBlock(true)
+    func signIn(withEmail email: String, andPassword password: String, loginComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil {
+                loginComplete(false, error)
+                return
             }
+            loginComplete(true, nil)
         }
     }
+    
 }
 

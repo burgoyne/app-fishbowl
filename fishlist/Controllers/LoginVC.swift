@@ -29,7 +29,7 @@ class LoginVC: UIViewController {
     @IBAction func loginBtnPressed(_ sender: Any) {
         let loginManager = FirebaseAuth()
         guard let email = usernameTxtField.text, let password = passwordTxtField.text else { return }
-        loginManager.signIn(email: email, pass: password) {[weak self] (success) in
+        loginManager.signIn(withEmail: email, andPassword: password) {[weak self] (success, registrationError) in
             guard let `self` = self else { return }
             var message: String = ""
             if (success) {

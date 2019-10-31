@@ -10,7 +10,12 @@ import UIKit
 import FirebaseAuth
 
 class EditVC: UIViewController {
-
+    
+    //outlets
+    @IBOutlet weak var nameTxtField: UITextField!
+    @IBOutlet weak var emailTxtField: UITextField!
+    @IBOutlet weak var mobileTxtField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -18,7 +23,10 @@ class EditVC: UIViewController {
     @IBAction func updateBtnPressed(_ sender: Any) {
         //use firebase auth to update email address
         
-        //use firestore to update new info 
+        //use firestore to update new info
+        
+        //let uid = (Auth.auth().currentUser?.uid)
+        
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
