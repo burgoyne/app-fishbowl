@@ -11,8 +11,17 @@ import UIKit
 class AddVC: UIViewController {
     
     //outlets
-
+    @IBOutlet weak var speciesTxtField: UITextField!
+    @IBOutlet weak var lengthTxtField: UITextField!
+    @IBOutlet weak var girthTxtField: UITextField!
+    @IBOutlet weak var weightTxtField: UITextField!
+    @IBOutlet weak var lureTxtField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func addBtnPressed(_ sender: Any) {
+        //record catch to realtime db 
     }
 }
