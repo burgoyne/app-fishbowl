@@ -10,22 +10,37 @@ import Foundation
 
 class Fish {
     private var _fishSpecies: String
+    private var _fishLength: String
+    private var _fishGirth: String
     private var _fishWeight: String
-    private var _key: String
+    private var _fishBait: String
+    private var _senderId: String
     
     var fishSpecies: String {
         return _fishSpecies
     }
+    var fishLength: String {
+        return _fishLength
+    }
+    var fishGirth: String {
+        return _fishGirth
+    }
     var fishWeight: String {
         return _fishWeight
     }
-    var key: String {
-        return _key
+    var fishBait: String {
+        return _fishBait
+    }
+    var senderId: String {
+        return _senderId
     }
     
-    init(species: String, weight: String, key: String) {
+    init(species: String, length: String, girth: String, weight: String, bait: String, senderId: String) {
         self._fishSpecies = species
+        self._fishLength = length
+        self._fishGirth = girth
         self._fishWeight = weight
-        self._key = key
+        self._fishBait = bait
+        self._senderId = senderId
     }
 }

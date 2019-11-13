@@ -16,7 +16,7 @@ class DataService {
     
     private var _REF_BASE = DB_BASE
     private var _REF_USERS = DB_BASE.child("users")
-    private var _REF_CATCHES = DB_BASE.child("catches")
+    private var _REF_FISH = DB_BASE.child("fish")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -26,8 +26,8 @@ class DataService {
         return _REF_USERS
     }
     
-    var REF_CATCHES: DatabaseReference {
-        return _REF_CATCHES
+    var REF_FISH: DatabaseReference {
+        return _REF_FISH
     }
     
     func createDbUser(uid: String, userData: Dictionary<String, Any>) {
@@ -45,20 +45,25 @@ class DataService {
         }
     }
     
-    func createFish(withSpecies species: String, andWeight weight: String, handler: @escaping (_ fishCreated: Bool) -> ()) {
-        REF_CATCHES.childByAutoId().updateChildValues(["species": species, "weight": weight])
-        handler(true)
+    func uploadFish(withSpecies species: String, andLength length: String, andGirth girth: String, andWeight weight: String, andBait bait: String, forUID uid: String, sendComplete: @escaping (_ status: Bool) -> () ) {
+        REF_FISH.childByAutoId().updateChildValues(["name": species, "length": length, "girth": girth, "weight": weight, "bait": bait, "senderId": uid])
+        sendComplete(true)
     }
     
-    func getAllFish(handler: @escaping (_ catchArray: [Fish]) -> ()) {
+    func getAllFish(handler: @escaping (_ fishes: [Fish]) -> ()) {
         var fishArray = [Fish]()
-        REF_CATCHES.observeSingleEvent(of: .value) { (fishSnapshot) in
+        REF_FISH.observeSingleEvent(of: .value) { (fishSnapshot) in
             guard let fishSnapshot = fishSnapshot.children.allObjects as? [DataSnapshot] else { return }
             for fish in fishSnapshot {
-                    let species = fish.childSnapshot(forPath: "species").value as! String
-                    let weight = fish.childSnapshot(forPath: "weight").value as! String
-                    let cAtch = Fish(species: species, weight: weight, key: fish.key)
-                    fishArray.append(cAtch)
+                let species = fish.childSnapshot(forPath: "name").value as! String
+                let length = fish.childSnapshot(forPath: "length").value as! String
+                let girth = fish.childSnapshot(forPath: "girth").value as! String
+                let weight = fish.childSnapshot(forPath: "weight").value as! String
+                let bait = fish.childSnapshot(forPath: "bait").value as! String
+                let senderId = fish.childSnapshot(forPath: "senderId").value as! String
+                
+                let fishCatch = Fish(species: species, length: length, girth: girth, weight: weight, bait: bait, senderId: senderId)
+                fishArray.append(fishCatch)
             }
             handler(fishArray)
         }

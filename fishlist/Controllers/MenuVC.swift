@@ -17,6 +17,7 @@ class MenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.size.width - 60
         isLoggedIn()
     }
@@ -24,6 +25,13 @@ class MenuVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         isLoggedIn()
     }
+    
+    @IBAction func addBtnPressed(_ sender: Any) {
+        if Auth.auth().currentUser != nil {
+            performSegue(withIdentifier: TO_ADD_FISH, sender: nil)
+        }
+    }
+    
     
     @IBAction func loginBtnPressed(_ sender: Any) {
         if Auth.auth().currentUser != nil {

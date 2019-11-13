@@ -15,6 +15,7 @@
 		8B2F398B235E9F4500499C07 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2F3989235E9F4400499C07 /* SWRevealViewController.m */; };
 		8B2F3990235EA52000499C07 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2F398F235EA52000499C07 /* RecordVC.swift */; };
 		8B2F3992235EA53100499C07 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2F3991235EA53100499C07 /* MenuVC.swift */; };
+		8B71CAB92375335400F8AC6F /* SpeciesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B71CAB82375335400F8AC6F /* SpeciesCell.swift */; };
 		8B7B650F2367D7F400B4766C /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B650E2367D7F400B4766C /* AddVC.swift */; };
 		8B7B651723693C9300B4766C /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B651623693C9300B4766C /* Fish.swift */; };
 		8B7B6519236A7EC300B4766C /* FishSpecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B6518236A7EC300B4766C /* FishSpecies.swift */; };
@@ -49,6 +50,7 @@
 		8B2F398A235E9F4500499C07 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8B2F398F235EA52000499C07 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		8B2F3991235EA53100499C07 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		8B71CAB82375335400F8AC6F /* SpeciesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesCell.swift; sourceTree = "<group>"; };
 		8B7B650E2367D7F400B4766C /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		8B7B651623693C9300B4766C /* Fish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		8B7B6518236A7EC300B4766C /* FishSpecies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FishSpecies.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				8BE07A01235FCF6600D2AD13 /* GradientView.swift */,
 				8BE07A1023611C0900D2AD13 /* RoundedButton.swift */,
 				8B89F2D92362707C00A29489 /* AvatarCell.swift */,
+				8B71CAB82375335400F8AC6F /* SpeciesCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,30 +268,22 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-fishlist/Pods-fishlist-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -338,6 +333,7 @@
 				8B2F3992235EA53100499C07 /* MenuVC.swift in Sources */,
 				8B7B651723693C9300B4766C /* Fish.swift in Sources */,
 				8BE07A1123611C0900D2AD13 /* RoundedButton.swift in Sources */,
+				8B71CAB92375335400F8AC6F /* SpeciesCell.swift in Sources */,
 				8B7B6519236A7EC300B4766C /* FishSpecies.swift in Sources */,
 				8BE07A02235FCF6600D2AD13 /* GradientView.swift in Sources */,
 				8BE07A05235FE59F00D2AD13 /* Constants.swift in Sources */,

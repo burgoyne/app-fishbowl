@@ -13,8 +13,6 @@ target 'fishlist' do
   pod 'Socket.IO-Client-Swift'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-  pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
-  pod 'Firebase/Firestore'
 
 end

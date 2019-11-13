@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A7B1AAAEC85CD9F89FB6A02299515ADE"
+               BlueprintIdentifier = "33545A3EA7B974BBB711B5E07B43F162"
                BlueprintName = "Socket.IO-Client-Swift"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Socket.IO-Client-Swift.framework">
